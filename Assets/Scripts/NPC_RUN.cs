@@ -1,25 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.AI;
 
 public class NPC_RUN : MonoBehaviour
 {
-    private NavMeshAgent ¾É¯è;
-    private Animator °Êµe¾¹;
-    public Transform ¥Ø¼Ğ;
-    public float ¶ZÂ÷=0;
+    private NavMeshAgent å°èˆª;
+    private Animator å‹•ç•«å™¨;
+    public Transform ç›®æ¨™;
+    public float è·é›¢=0;
     void Start()
     {
-        ¾É¯è = GetComponent<NavMeshAgent>();
-        °Êµe¾¹ = GetComponent<Animator>();
+        å°èˆª = GetComponent<NavMeshAgent>();
+        å‹•ç•«å™¨ = GetComponent<Animator>();
     }
     void Update()
     {
-        if (¥Ø¼Ğ != null)
+        if (ç›®æ¨™ != null)
         {
-            ¾É¯è.SetDestination(¥Ø¼Ğ.position);
-            ¶ZÂ÷ = Vector3.Distance(¥Ø¼Ğ.position, this.transform.position);
-            if(¶ZÂ÷ <= 3.1f)   { °Êµe¾¹.SetBool("isWalk",false); }
-            else                       { °Êµe¾¹.SetBool("isWalk", true); }
+            å°èˆª.SetDestination(ç›®æ¨™.position);
+            è·é›¢ = Vector3.Distance(ç›®æ¨™.position, this.transform.position);
+            if(è·é›¢ <= 3.1f)   { å‹•ç•«å™¨.SetBool("isWalk",false); }
+            else                       { å‹•ç•«å™¨.SetBool("isWalk", true); }
         }
     }
 }
