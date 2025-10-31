@@ -159,6 +159,11 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            if (Input.GetKeyDown(KeyCode.Mouse0)) 
+            {
+                //Fire
+                _animator.SetTrigger("Fire");
+            }
         }
 
         private void LateUpdate()
@@ -387,6 +392,17 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        public void startFiring() 
+        {
+            Debug.Log("開始射擊");
+            _controller.height = 0.9f;
+        }
+        public void endFiring()
+        {
+            Debug.Log("射擊完成");
+            _controller.height = 1.8f;
         }
     }
 }
