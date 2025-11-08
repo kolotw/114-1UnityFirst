@@ -398,7 +398,7 @@ namespace StarterAssets
         }
 
         public void 發射子彈事件()
-        {
+       {
             Debug.Log("發射子彈");
             GameObject bb = Instantiate(子彈, 發射點.position, Quaternion.identity);
             bb.GetComponent<Rigidbody>().linearVelocity = Vector3.forward * Time.deltaTime * 100;
