@@ -552,7 +552,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Aiming
+  m_Name: "\u767C\u5C04\u5B50\u5F48"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -566,7 +566,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 83a2dbba92bea5549bdfd49839cff15c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9e425aa73b9faab47b62f012b2182c61, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -706,7 +706,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -1561750860778243614, guid: 9f48806bfc583234ebb98dcd73323854, type: 3}
+    m_Motion: {fileID: 7400000, guid: 779c34375802f6e4087496577be9bf4f, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
