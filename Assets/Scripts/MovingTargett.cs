@@ -1,18 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MovingTargett : MonoBehaviour
 {
-    [Tooltip("¨Ó¦^²¾°ÊªºÁ`¶ZÂ÷¡C¥Ø¼Ğ±N¦b -distance ©M +distance ¤§¶¡²¾°Ê¡C")]
-    public float distance = 30f; // ±z­n¨Dªº¥ª¥k¦U²¾°Ê 30 (Á`½d³ò 60)
+    [Tooltip("ä¾†å›ç§»å‹•çš„ç¸½è·é›¢ã€‚ç›®æ¨™å°‡åœ¨ -distance å’Œ +distance ä¹‹é–“ç§»å‹•ã€‚")]
+    public float distance = 30f; // æ‚¨è¦æ±‚çš„å·¦å³å„ç§»å‹• 30 (ç¸½ç¯„åœ 60)
 
-    [Tooltip("§¹¦¨¤@¦¸¨Ó¦^¡]±q¤@ºİ¨ì¥t¤@ºİ¦A¦^¨Ó¡^©Ò»İªº®É¶¡¡]¬í¡^¡C")]
-    public float cycleTime = 3f; // ±z­n¨Dªº¨C 3 ¬í¨Ó¦^¤@¦¸
+    [Tooltip("å®Œæˆä¸€æ¬¡ä¾†å›ï¼ˆå¾ä¸€ç«¯åˆ°å¦ä¸€ç«¯å†å›ä¾†ï¼‰æ‰€éœ€çš„æ™‚é–“ï¼ˆç§’ï¼‰ã€‚")]
+    public float cycleTime = 3f; // æ‚¨è¦æ±‚çš„æ¯ 3 ç§’ä¾†å›ä¸€æ¬¡
 
-    // --- ¤º³¡ÅÜ¼Æ ---
+    // --- å…§éƒ¨è®Šæ•¸ ---
 
-    private Vector3 initialPosition; // Àx¦sª«Åéªºªì©l¦ì¸m
+    private Vector3 initialPosition; // å„²å­˜ç‰©é«”çš„åˆå§‹ä½ç½®
 
-    // --- Unity ¥Í©R¶g´Á¨ç¦¡ ---
+    // --- Unity ç”Ÿå‘½é€±æœŸå‡½å¼ ---
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,8 +28,8 @@ public class MovingTargett : MonoBehaviour
 
         transform.position = new Vector3(
             newXPosition,
-            initialPosition.y, // Y ¶b«O«ù¤£ÅÜ
-            initialPosition.z  // Z ¶b«O«ù¤£ÅÜ
+            initialPosition.y, // Y è»¸ä¿æŒä¸è®Š
+            initialPosition.z  // Z è»¸ä¿æŒä¸è®Š
         );
     }
 }

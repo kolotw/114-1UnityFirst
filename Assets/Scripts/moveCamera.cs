@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class moveCamera : MonoBehaviour
 {
-    [SerializeField] private float ³t«× = 3.5f;
-    public float rotationSpeed = 5f; // ±ÛÂà³t«×­¿²v
-    public bool lockY = true;        // ¬O§_Âê©w Y ¶b
+    [SerializeField] private float é€Ÿåº¦ = 3.5f;
+    public float rotationSpeed = 5f; // æ—‹è½‰é€Ÿåº¦å€ç‡
+    public bool lockY = true;        // æ˜¯å¦é–å®š Y è»¸
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,39 +15,39 @@ public class moveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //·Æ¹«²¾°Ê¨¤«×
-        float mouseX = Input.GetAxis("Mouse X"); // ·Æ¹«¥ª¥k²¾°Ê
-        float mouseY = Input.GetAxis("Mouse Y"); // ·Æ¹«¤W¤U²¾°Ê
+        //æ»‘é¼ ç§»å‹•è§’åº¦
+        float mouseX = Input.GetAxis("Mouse X"); // æ»‘é¼ å·¦å³ç§»å‹•
+        float mouseY = Input.GetAxis("Mouse Y"); // æ»‘é¼ ä¸Šä¸‹ç§»å‹•
 
         if (lockY)
         {
-            // ¥u¥Î X ¶b¨Ó±ÛÂà Y ¶b¤è¦V¡]¥ª¥kÂà°Ê¡^
+            // åªç”¨ X è»¸ä¾†æ—‹è½‰ Y è»¸æ–¹å‘ï¼ˆå·¦å³è½‰å‹•ï¼‰
             transform.Rotate(Vector3.up, mouseX * rotationSpeed, Space.World);
         }
         else
         {
-            // ¨Ï¥Î X, Y ¦P®É±ÛÂà
+            // ä½¿ç”¨ X, Y åŒæ™‚æ—‹è½‰
             transform.Rotate(Vector3.up, mouseX * rotationSpeed, Space.World);
             transform.Rotate(Vector3.right, mouseY * rotationSpeed, Space.World);
         }
 
 
-        //¦ì²¾ 
-        if (Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow)) //©¹«e forward z
+        //ä½ç§» 
+        if (Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow)) //å¾€å‰ forward z
         {
-            transform.Translate(Vector3.forward * ³t«× * Time.deltaTime);
+            transform.Translate(Vector3.forward * é€Ÿåº¦ * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) //©¹«á
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) //å¾€å¾Œ
         {
-            transform.Translate(Vector3.back * ³t«× * Time.deltaTime);
+            transform.Translate(Vector3.back * é€Ÿåº¦ * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //©¹¥ª
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) //å¾€å·¦
         {
-            transform.Translate(Vector3.left * ³t«× * Time.deltaTime);
+            transform.Translate(Vector3.left * é€Ÿåº¦ * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) //©¹¥k
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) //å¾€å³
         {
-            transform.Translate(Vector3.right * ³t«× * Time.deltaTime);
+            transform.Translate(Vector3.right * é€Ÿåº¦ * Time.deltaTime);
         }
     }
 }

@@ -1,33 +1,33 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.AI;
 
 public class NPC_Follow : MonoBehaviour
 {
-    private NavMeshAgent ¾É¯è;
-    private Animator °Êµe¾¹;
-    public Transform ¥Ø¼Ğ;
-    public float ¶ZÂ÷=0f;
+    private NavMeshAgent å°èˆª;
+    private Animator å‹•ç•«å™¨;
+    public Transform ç›®æ¨™;
+    public float è·é›¢=0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ¾É¯è = GetComponent<NavMeshAgent>();
-        °Êµe¾¹ = GetComponent<Animator>();        
+        å°èˆª = GetComponent<NavMeshAgent>();
+        å‹•ç•«å™¨ = GetComponent<Animator>();        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(¥Ø¼Ğ != null)
+        if(ç›®æ¨™ != null)
         {
-            ¶ZÂ÷ = Vector3.Distance(¥Ø¼Ğ.position, this.transform.position);
-            if(¶ZÂ÷ > 3.2f)
+            è·é›¢ = Vector3.Distance(ç›®æ¨™.position, this.transform.position);
+            if(è·é›¢ > 3.2f)
             {
-                °Êµe¾¹.SetBool("isWalk", true);
-                ¾É¯è.SetDestination(¥Ø¼Ğ.position);
+                å‹•ç•«å™¨.SetBool("isWalk", true);
+                å°èˆª.SetDestination(ç›®æ¨™.position);
             }
             else
             {
-                °Êµe¾¹.SetBool("isWalk", false);
+                å‹•ç•«å™¨.SetBool("isWalk", false);
             }
         }
     }
