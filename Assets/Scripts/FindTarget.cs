@@ -28,7 +28,7 @@ public class FindTarget : MonoBehaviour
         }
 
         // 初始設定最短距離為無限大，以便第一次比較時一定會被取代
-        float shortestDistance = float.MaxValue;
+        float shortestDistance = 10f;
         GameObject closestEnemy = null;
 
         // 2. 遍歷所有敵人
@@ -43,6 +43,10 @@ public class FindTarget : MonoBehaviour
                 shortestDistance = distance;
                 closestEnemy = enemy; // 儲存這個敵人物件
             }
+            if(shortestDistance > 10f)
+            {
+                closestEnemy = null;
+            }
         }
 
         // 5. 設定最終結果
@@ -54,6 +58,11 @@ public class FindTarget : MonoBehaviour
             最近距離 = shortestDistance;
             敵人座標.y = 1.4f;
             最終目標.transform.position = 敵人座標;
+        }
+        else 
+        {
+            Vector3 原始座標 = new Vector3(0,1.6f,1.72f);
+            最終目標.transform.localPosition = 原始座標;
         }
     }
 }
