@@ -1,59 +1,59 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 
 public class FindTarget : MonoBehaviour
 {
-    public Transform ³Ìªñªº¼Ä¤H;
-    public Vector3 ¼Ä¤H®y¼Ğ;
-    public float ³Ìªñ¶ZÂ÷;
-    public GameObject ³Ì²×¥Ø¼Ğ;
+    public Transform æœ€è¿‘çš„æ•µäºº;
+    public Vector3 æ•µäººåº§æ¨™;
+    public float æœ€è¿‘è·é›¢;
+    public GameObject æœ€çµ‚ç›®æ¨™;
 
     private void Start()
     {
-        ³Ì²×¥Ø¼Ğ = GameObject.Find("Target");
+        æœ€çµ‚ç›®æ¨™ = GameObject.Find("Target");
     }
     // Update is called once per frame
     void Update()
     {
-        // 1. ·j´M©Ò¦³¨ã¦³«ü©w Tag ªº¹CÀ¸ª«¥ó
+        // 1. æœå°‹æ‰€æœ‰å…·æœ‰æŒ‡å®š Tag çš„éŠæˆ²ç‰©ä»¶
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        // ¦pªG³õ´º¤¤¨S¦³¥ô¦ó¼Ä¤H
+        // å¦‚æœå ´æ™¯ä¸­æ²’æœ‰ä»»ä½•æ•µäºº
         if (enemies.Length == 0)
         {
-            ³Ìªñªº¼Ä¤H = null;
-            ¼Ä¤H®y¼Ğ = Vector3.zero;
-            ³Ìªñ¶ZÂ÷ = 0f;
+            æœ€è¿‘çš„æ•µäºº = null;
+            æ•µäººåº§æ¨™ = Vector3.zero;
+            æœ€è¿‘è·é›¢ = 0f;
             return;
         }
 
-        // ªì©l³]©w³Ìµu¶ZÂ÷¬°µL­­¤j¡A¥H«K²Ä¤@¦¸¤ñ¸û®É¤@©w·|³Q¨ú¥N
+        // åˆå§‹è¨­å®šæœ€çŸ­è·é›¢ç‚ºç„¡é™å¤§ï¼Œä»¥ä¾¿ç¬¬ä¸€æ¬¡æ¯”è¼ƒæ™‚ä¸€å®šæœƒè¢«å–ä»£
         float shortestDistance = float.MaxValue;
         GameObject closestEnemy = null;
 
-        // 2. ¹M¾ú©Ò¦³¼Ä¤H
+        // 2. éæ­·æ‰€æœ‰æ•µäºº
         foreach (GameObject enemy in enemies)
         {
-            // 3. ­pºâ·í«eª«Åé»P¼Ä¤Hªº¶ZÂ÷
+            // 3. è¨ˆç®—ç•¶å‰ç‰©é«”èˆ‡æ•µäººçš„è·é›¢
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-            // 4. §PÂ_¬O§_¬°¥Ø«e§ä¨ìªº³Ìªñ¥Ø¼Ğ
+            // 4. åˆ¤æ–·æ˜¯å¦ç‚ºç›®å‰æ‰¾åˆ°çš„æœ€è¿‘ç›®æ¨™
             if (distance < shortestDistance)
             {
                 shortestDistance = distance;
-                closestEnemy = enemy; // Àx¦s³o­Ó¼Ä¤Hª«¥ó
+                closestEnemy = enemy; // å„²å­˜é€™å€‹æ•µäººç‰©ä»¶
             }
         }
 
-        // 5. ³]©w³Ì²×µ²ªG
+        // 5. è¨­å®šæœ€çµ‚çµæœ
         if (closestEnemy != null)
         {
-            ³Ìªñªº¼Ä¤H = closestEnemy.transform;
-            // ³]©w¥Ø¼Ğ®y¼Ğ
-            ¼Ä¤H®y¼Ğ = closestEnemy.transform.position;
-            ³Ìªñ¶ZÂ÷ = shortestDistance;
-            ¼Ä¤H®y¼Ğ.y = 1.4f;
-            ³Ì²×¥Ø¼Ğ.transform.position = ¼Ä¤H®y¼Ğ;
+            æœ€è¿‘çš„æ•µäºº = closestEnemy.transform;
+            // è¨­å®šç›®æ¨™åº§æ¨™
+            æ•µäººåº§æ¨™ = closestEnemy.transform.position;
+            æœ€è¿‘è·é›¢ = shortestDistance;
+            æ•µäººåº§æ¨™.y = 1.4f;
+            æœ€çµ‚ç›®æ¨™.transform.position = æ•µäººåº§æ¨™;
         }
     }
 }
