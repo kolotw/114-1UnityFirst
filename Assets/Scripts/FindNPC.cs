@@ -1,43 +1,43 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class FindNPC : MonoBehaviour
 {
-    public float ³Ìªø¶ZÂ÷ = 5f;
-    float ³Ìµu¶ZÂ÷ = 10f;
-    GameObject ¥Ø¼Ğ¼Ä¤H = null;
-    GameObject[] ©Ò¦³¼Ä¤H;
-    public GameObject ª±®a;
-    public Vector3 ­ì©lºË·ÇÂI = new Vector3(0, 1.625f, 1.825f);
+    public float æœ€é•·è·é›¢ = 5f;
+    float æœ€çŸ­è·é›¢ = 10f;
+    GameObject ç›®æ¨™æ•µäºº = null;
+    GameObject[] æ‰€æœ‰æ•µäºº;
+    public GameObject ç©å®¶;
+    public Vector3 åŸå§‹ç„æº–é» = new Vector3(0, 1.625f, 1.825f);
     // Update is called once per frame
     void Update()
     {
-        if (ª±®a == null) ª±®a = GameObject.FindGameObjectWithTag("Player");
+        if (ç©å®¶ == null) ç©å®¶ = GameObject.FindGameObjectWithTag("Player");
 
-        ©Ò¦³¼Ä¤H = GameObject.FindGameObjectsWithTag("Enemy");
-        if(©Ò¦³¼Ä¤H.Length == 0)
+        æ‰€æœ‰æ•µäºº = GameObject.FindGameObjectsWithTag("Enemy");
+        if(æ‰€æœ‰æ•µäºº.Length == 0)
         {
-            ¥Ø¼Ğ¼Ä¤H = null;
+            ç›®æ¨™æ•µäºº = null;
             return;
         }
-        ¥Ø¼Ğ¼Ä¤H = null;
-        ³Ìµu¶ZÂ÷ = 10f;
-        foreach (GameObject ¼Ä¤H in ©Ò¦³¼Ä¤H)
+        ç›®æ¨™æ•µäºº = null;
+        æœ€çŸ­è·é›¢ = 10f;
+        foreach (GameObject æ•µäºº in æ‰€æœ‰æ•µäºº)
         {
-            float ¶ZÂ÷ = Vector3.Distance(ª±®a.transform.position, ¼Ä¤H.transform.position);
-            if(¶ZÂ÷ < ³Ìµu¶ZÂ÷)
+            float è·é›¢ = Vector3.Distance(ç©å®¶.transform.position, æ•µäºº.transform.position);
+            if(è·é›¢ < æœ€çŸ­è·é›¢)
             {
-                ³Ìµu¶ZÂ÷ = ¶ZÂ÷;
-                ¥Ø¼Ğ¼Ä¤H = ¼Ä¤H;
+                æœ€çŸ­è·é›¢ = è·é›¢;
+                ç›®æ¨™æ•µäºº = æ•µäºº;
             }
         }
-        Vector3 ºË·Ç¦ì¸m = ¥Ø¼Ğ¼Ä¤H.transform.position;
-        ºË·Ç¦ì¸m.y = 1.45f;
-        this.transform.position = ºË·Ç¦ì¸m;
+        Vector3 ç„æº–ä½ç½® = ç›®æ¨™æ•µäºº.transform.position;
+        ç„æº–ä½ç½®.y = 1.45f;
+        this.transform.position = ç„æº–ä½ç½®;
 
-        if (³Ìµu¶ZÂ÷ > ³Ìªø¶ZÂ÷)
+        if (æœ€çŸ­è·é›¢ > æœ€é•·è·é›¢)
         {
-            ¥Ø¼Ğ¼Ä¤H = null;
-            this.transform.localPosition = ­ì©lºË·ÇÂI;
+            ç›®æ¨™æ•µäºº = null;
+            this.transform.localPosition = åŸå§‹ç„æº–é»;
         }
     }
 }
