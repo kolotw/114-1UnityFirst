@@ -410,13 +410,7 @@ namespace StarterAssets
                 GameObject bb = Instantiate(子彈, 發射點.position, 發射點.rotation);
                 bb.GetComponent<Rigidbody>().linearVelocity = 方向  * Time.deltaTime * 100;
                 Destroy(bb, 3f);
-            }
-            else
-            {
-                print("沒找到目標");
-            }
-                
-            
+            }               
         }
 
     }
