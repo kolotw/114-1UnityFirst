@@ -25817,7 +25817,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.2
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -25879,12 +25879,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186016807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11729209, y: -0.8707033, z: 0.40601596, w: 0.25153396}
-  m_LocalPosition: {x: 17.500006, y: 3.0820458, z: 7.5000057}
+  m_LocalRotation: {x: 0.1172921, y: -0.87070334, z: 0.406016, w: 0.251534}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1528564589}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &186016810
 MonoBehaviour:
@@ -27611,6 +27611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u767C\u5C04\u9EDE": {fileID: 519200165}
   "\u5B50\u5F48": {fileID: 4769621588931235457, guid: cf5d3b1c29703f445ac66a77d69115b1, type: 3}
+  "\u5B50\u5F48\u901F\u5EA6": 1000
   MoveSpeed: 9
   SprintSpeed: 2
   RotationSmoothTime: 0.12
@@ -220183,7 +220184,6 @@ Transform:
   - {fileID: 1454573007}
   - {fileID: 1208622001}
   - {fileID: 1195840284}
-  - {fileID: 186016809}
   - {fileID: 876697644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308598,6 +308598,7 @@ SceneRoots:
   - {fileID: 6086682844359315847}
   - {fileID: 492756126}
   - {fileID: 8589873456746198594}
+  - {fileID: 186016809}
   - {fileID: 7852923107423096502}
   - {fileID: 492722737}
   - {fileID: 434388914075067022}
