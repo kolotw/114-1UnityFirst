@@ -682,7 +682,7 @@ MonoBehaviour:
   "\u76EE\u6A19": {fileID: 0}
   "\u8DDD\u96E2": 0
   "\u8840\u91CF\u6587\u5B57": {fileID: 5650355976595280428}
-  "\u8840\u91CF": 100
+  "\u8840\u91CF": 10
   "\u8840\u689D": {fileID: 521117496511607875}
 --- !u!136 &7358856082431836873
 CapsuleCollider:

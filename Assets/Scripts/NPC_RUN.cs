@@ -11,11 +11,14 @@ public class NPC_RUN : MonoBehaviour
 
     public TextMeshPro 血量文字; 
     public int 血量 = 100;
+    int 原始血量;
     public Transform 血條;
     void Start()
     {
         導航 = GetComponent<NavMeshAgent>();
         動畫器 = GetComponent<Animator>();
+        原始血量 = 血量;
+        血量文字.text = 血量.ToString();
     }
     void Update()
     {
@@ -34,7 +37,7 @@ public class NPC_RUN : MonoBehaviour
             Destroy(other.gameObject);
             血量--;
             血量文字.text = 血量.ToString();
-            float 血量比例 = (float)血量 / 100f;            
+            float 血量比例 = (float)血量 / (float)原始血量;            
             血條.localScale = new Vector3(血量比例,1,1);
             if(血量 <= 0)  {  Destroy(this.gameObject);  }
         }
