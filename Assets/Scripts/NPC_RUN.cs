@@ -16,12 +16,14 @@ public class NPC_RUN : MonoBehaviour
     bool 開始攻擊 = false;
     float 攻擊間距 = 2f;
     float 下次可攻擊時間;
+    public float 攻擊距離 = 1.2f;
     void Start()
     {
         導航 = GetComponent<NavMeshAgent>();
         動畫器 = GetComponent<Animator>();
         原始血量 = 血量;
         血量文字.text = 血量.ToString();
+        導航.stoppingDistance = 攻擊距離;
     }
     void Update()
     {
@@ -29,7 +31,7 @@ public class NPC_RUN : MonoBehaviour
         {
             導航.SetDestination(目標.position);
             距離 = Vector3.Distance(目標.position, this.transform.position);
-            if(距離 <= 3.1f)   
+            if(距離 <= 攻擊距離)   
             { 
                 動畫器.SetBool("isWalk",false);
                 開始攻擊 = true;
