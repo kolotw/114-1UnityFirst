@@ -41,6 +41,7 @@ public class NPC_RUN : MonoBehaviour
             }
             if(開始攻擊)
             {
+                if (血量 <= 0) return;
                 if (Time.time >= 下次可攻擊時間)
                 {
                     動畫器.SetTrigger("isAttack");
