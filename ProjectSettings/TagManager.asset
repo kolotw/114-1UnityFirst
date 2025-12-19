@@ -7,11 +7,12 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Bullet
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 

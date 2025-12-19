@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -17,6 +18,12 @@ namespace StarterAssets
         public Transform 發射點;
         public GameObject 子彈;
         public int 子彈速度 = 100;
+
+        public TextMeshPro 血量文字;
+        public int 血量 = 100;
+        int 原始血量;
+        public Transform 血條;
+        public GameObject 血條組件;
 
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -154,6 +161,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            原始血量 = 血量;
         }
 
         private void Update()
@@ -168,8 +177,30 @@ namespace StarterAssets
             {
                 _animator.SetTrigger("Fire");
             }
+            //血條要對準攝影機
+            血條組件.transform.forward = Camera.main.transform.forward;
         }
-
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "EnemyAttack")
+            {
+                //Destroy(other.gameObject);
+                血量--;
+                血量文字.text = 血量.ToString();
+                float 血量比例 = (float)血量 / (float)原始血量;
+                血條.localScale = new Vector3(血量比例, 1, 1);
+                if (血量 <= 0)
+                {
+                    _animator.SetTrigger("isDead");
+                    GameObject myPlayer = GameObject.Find("myPlayer");
+                    Destroy(myPlayer.gameObject, 3f);
+                }
+                else
+                {
+                    _animator.SetTrigger("isHit");
+                }
+            }
+        }
         private void LateUpdate()
         {
             CameraRotation();
