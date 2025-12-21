@@ -9,6 +9,7 @@ public class NPC_RUN : MonoBehaviour
     public Transform 目標;
     public float 距離=0;
 
+    public GameObject 血條組件;
     public TextMeshPro 血量文字; 
     public int 血量 = 100;
     int 原始血量;
@@ -27,6 +28,7 @@ public class NPC_RUN : MonoBehaviour
     }
     void Update()
     {
+        血條組件.transform.forward = Camera.main.transform.forward;
         if (目標 != null)
         {
             導航.SetDestination(目標.position);
@@ -51,6 +53,10 @@ public class NPC_RUN : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            目標 = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -61,10 +67,10 @@ public class NPC_RUN : MonoBehaviour
             血量文字.text = 血量.ToString();
             float 血量比例 = (float)血量 / (float)原始血量;            
             血條.localScale = new Vector3(血量比例,1,1);
-            if (血量 <= 0)
+            if (血量 == 0)
             {
                 動畫器.SetTrigger("isDead");
-                Destroy(this.gameObject, 3f);
+                Destroy(this.gameObject, 7f);
             }
             else {
                 動畫器.SetTrigger("isHit");
