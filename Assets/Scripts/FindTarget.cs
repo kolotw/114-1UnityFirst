@@ -24,6 +24,8 @@ public class FindTarget : MonoBehaviour
             最近的敵人 = null;
             敵人座標 = Vector3.zero;
             最近距離 = 0f;
+            Vector3 原始座標 = new Vector3(0, 1.6f, 1.72f);
+            最終目標.transform.localPosition = 原始座標;
             return;
         }
 
