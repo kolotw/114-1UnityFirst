@@ -32,7 +32,7 @@ public class 敵人的巡邏 : MonoBehaviour
     {
         if (發現玩家)
         {
-            導航.stoppingDistance = 2;
+            導航.stoppingDistance = 2.5f;
             if (Vector3.Distance(this.transform.position, 玩家位置.position) < 導航.stoppingDistance)
             {
                 動畫控制器.SetTrigger("isAttack");
@@ -67,7 +67,7 @@ public class 敵人的巡邏 : MonoBehaviour
             if (Vector3.Distance(this.transform.position, 目標[第幾個目標].position) < 導航.stoppingDistance)
             {
                 導航.ResetPath(); // 重置路徑，防止殘留舊的目標點
-                導航.stoppingDistance = 0.5f;
+                導航.stoppingDistance = 2.5f;
                 發現玩家 = false;
                 //找下一個目標
                 換目標();
