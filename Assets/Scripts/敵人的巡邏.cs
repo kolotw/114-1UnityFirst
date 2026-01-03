@@ -13,7 +13,7 @@ public class 敵人的巡邏 : MonoBehaviour
     NavMeshAgent 導航;
     public Transform[] 目標; //不預設容量
     //public Transform[] target = new Transform[2]; //預設容量
-    int 第幾個目標 = 0;
+    public int 第幾個目標 = 0;
 
     Animator 動畫控制器;
 
@@ -62,19 +62,16 @@ public class 敵人的巡邏 : MonoBehaviour
         }
         else
         {
-            //print("目標" + 第幾個目標.ToString());
-            //如果到了目標後，就要看下一個目標
-            if (Vector3.Distance(this.transform.position, 目標[第幾個目標].position) < 導航.stoppingDistance)
+            // --- 巡邏狀態 ---
+            導航.stoppingDistance = 0.5f; // 確保巡邏時會很靠近目標點
+
+            // 檢查是否抵達目標 (使用 remainingDistance 會比自測距離更精準)
+            if (!導航.pathPending && 導航.remainingDistance < 導航.stoppingDistance)
             {
-                導航.ResetPath(); // 重置路徑，防止殘留舊的目標點
-                導航.stoppingDistance = 2.5f;
-                發現玩家 = false;
-                //找下一個目標
                 換目標();
             }
             else
             {
-                //叫動畫控制器，走或跑
                 動畫控制器.SetBool("isWalk", true);
             }
         }

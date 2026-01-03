@@ -32,12 +32,13 @@ public class 敵人的視覺 : MonoBehaviour
     {
         int[] 三角形 = new int[(視線圓弧點 - 1) * 3];
         Vector3[] 扇形頂點 = new Vector3[視線圓弧點 + 1];
-        扇形頂點[0] = Vector3.zero;
+        扇形頂點[0] = new Vector3(0f,1f,0f);
         float 目前角度 = -視覺角度 / 2;
         float 角度增強 = 視覺角度 / (視線圓弧點 - 1); //計算每個頂點之間的角度增量
         float Sine;
         float Cosine;
         Vector3 射線起點 = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        float 固定高度 = 1f;
 
         for (int i = 0; i < 視線圓弧點; i++)
         {
@@ -45,10 +46,13 @@ public class 敵人的視覺 : MonoBehaviour
             Cosine = Mathf.Cos(目前角度);
             Vector3 射線方向 = (transform.forward * Cosine) + (Vector3.right * Sine);
             Vector3 增強方向 = (Vector3.forward * Cosine) + (Vector3.right * Sine);
-            Debug.DrawRay(射線起點,射線方向 * 2, Color.red);
+            //Debug.DrawRay(射線起點,射線方向 * 2, Color.red);
             if (Physics.Raycast(射線起點, 射線方向, out RaycastHit hit, 視覺距離, 視線遮蔽圖層))
             {
-                扇形頂點[i + 1] = 增強方向 * hit.distance;
+                // 修改點：強制 Y 為固定高度，只取 X 與 Z 的方向向量
+                Vector3 平面方向 = new Vector3(增強方向.x, 0, 增強方向.z);
+                扇形頂點[i + 1] = 平面方向 * hit.distance + new Vector3(0, 固定高度, 0);
+
                 //print(hit.transform.tag);
                 if (hit.transform.tag == "Player")
                 {
@@ -59,7 +63,9 @@ public class 敵人的視覺 : MonoBehaviour
             }
             else
             {
-                扇形頂點[i + 1] = 增強方向 * 視覺距離;
+                // 修改點：同樣強制 Y 高度
+                Vector3 平面方向 = new Vector3(增強方向.x, 0, 增強方向.z);
+                扇形頂點[i + 1] = 平面方向 * 視覺距離 + new Vector3(0, 固定高度, 0);
             }
             目前角度 += 角度增強;
         }
