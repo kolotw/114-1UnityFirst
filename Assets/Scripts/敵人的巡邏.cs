@@ -12,7 +12,6 @@ public class 敵人的巡邏 : MonoBehaviour
      */
     NavMeshAgent 導航;
     public Transform[] 目標; //不預設容量
-    //public Transform[] target = new Transform[2]; //預設容量
     public int 第幾個目標 = 0;
 
     Animator 動畫控制器;
